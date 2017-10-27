@@ -5,6 +5,8 @@ var table = 'bbs';
 var mongo = require("mongodb").MongoClient;
 var ObjectID = require('mongodb').ObjectID;
 
+var pagingCount = 20;
+
 /*
   var bbs = {
     no : 12,
@@ -64,6 +66,11 @@ exorts.search = {
 // db CRUD
 exports.create = function(bbs, callback){
   mongo.connect(db_url, function(error, db){
+
+    // Obejct 에 key 생성
+    bbs['date'];
+    // Object 에 값 넣기
+    bbs.date = new Date()+"";
     db.collection(table).insert(bbs);
     if(error){
       callback(400);
@@ -81,10 +88,28 @@ exports.read = function(search, callback){
     // 0 : 가져오지 않음, 1 : 가져옴
     // 둘다 가져오거나, 둘다 안가져와야한다. 
     // 그러므로 안됨
-    // var proejction = {title :1, content: 0}
-    
+    // var proejction = {title :1, content: 0}    
     //var proejction = {_id:0};
-    var cursor = db.collection(table).find(search);
+
+    // like 검색
+    // find({title:/피/})
+    // `피`가 포함되는 단어들을 찾는다.
+
+    // sort();
+    var sort = {
+      _id : -1 // 1: 내림차순 , -1 : 오름차순
+    }
+
+    // 집합
+    // skip : count 를 시작할 index 의 위치
+    // limit : 가져올 갯수를 정의
+
+    var start = (parseInt(search.page) - 1) * pagingCount;
+    
+    // 사용하지 않는 검색 컬럼은 삭제처리해야한다.
+    delete search.page;
+
+    var cursor = db.collection(table).find(search).sort(sort).skip(start).limit(pagingCount);
 
     cursor.toArray(function(error, documents){
       if(error){

@@ -56,7 +56,7 @@ function methodProcess(req, res){
                 bbs.delete(req, res, bbd_body);
                 break;
             }
-        })
+        });
 
     }
 }

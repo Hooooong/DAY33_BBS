@@ -7,6 +7,7 @@ exports.read = function(req, res, search){
 
     switch(search.type){
         case "all":
+            query = { page : search.page};
             break;
         case "_id":
             query = {_id:-1};
@@ -24,7 +25,9 @@ exports.read = function(req, res, search){
             msg : "정상처리",
             data :  dataSet
         }
+        // Object:JSON -> JSON String
         result = JSON.stringify(result);
+        console.log(result);
         res.end(result);
     });
 }
