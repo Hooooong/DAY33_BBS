@@ -10,9 +10,9 @@ ____________________________________________________
 
 - Module 형식으로 js 나누기
 
-    - require 를 통해 Module 인식한다.
+    - require 를 통해 Module을 인식한다.
 
-    - Module 에 있는 Function 을 사용하기 위해 `expㅐorts` 를 앞에 붙여준다.
+    - Module 에 있는 Function 을 사용하기 위해 `exports` 를 앞에 붙여준다.
 
     ```javascript
     // Module 사용하기
