@@ -108,7 +108,6 @@ exports.read = function(search, callback){
     
     // 사용하지 않는 검색 컬럼은 삭제처리해야한다.
     delete search.page;
-
     var cursor = db.collection(table).find(search).sort(sort).skip(start).limit(pagingCount);
 
     cursor.toArray(function(error, documents){

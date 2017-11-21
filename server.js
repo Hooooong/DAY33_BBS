@@ -1,6 +1,5 @@
 var http = require("http");
-var route = require("./a_route");
-
+var route = require("./a_route/route");
 
 /*
  서버와의 연결이 들어오면
