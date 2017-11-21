@@ -71,7 +71,7 @@ ____________________________________________________
 
 - javascript callback 사용
 
-    ![callback]()
+    ![callback](https://github.com/Hooooong/DAY33_BBS-Server-/blob/master/image/callback.PNG)
 
     - Function 에 callback 메소드를 사용해서 데이터를 주고받는다.
 
@@ -99,5 +99,14 @@ ____________________________________________________
     sort(value)
     ```
 
-    -
+    - skip(), limit()
+
+    ```javascript
+    // 집합
+    // skip : count 를 시작할 index 의 위치
+    // limit : 가져올 갯수를 정의
+    skip(1).limit(10)
+    // 1부터 10개를 가져온다.
+    ```
+    
 
